@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 44px;
+  gap: 24px;
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: var(--font-medium);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--main);
+}
+
+.text {
+  line-height: 1.5;
+  color: var(--gray);
+}

@@ -45,3 +45,7 @@
 .outlined:active {
   border: 1px solid var(--button-hover);
 }
+
+.center {
+  align-self: center;
+}
