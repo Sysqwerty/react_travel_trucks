@@ -79,8 +79,8 @@ const FiltersForm = () => {
                         'equipment',
                         values.equipment.includes(option.value)
                           ? values.equipment.filter(
-                              item => item !== option.value
-                            )
+                            item => item !== option.value
+                          )
                           : [...values.equipment, option.value]
                       )
                     }
