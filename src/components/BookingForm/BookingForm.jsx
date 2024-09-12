@@ -20,7 +20,7 @@ const INITIAL_FORM_DATA = {
 const FormSchema = Yup.object().shape({
   name: Yup.string().required('Required'),
   email: Yup.string().email('Invalid email').required('Required'),
-  date: Yup.date().required('Required').nullable(),
+  date: Yup.date().required('Required'),
   comment: Yup.string(),
 });
 
@@ -64,15 +64,17 @@ const BookingForm = () => {
           <div className={css.field}>
             <DatePicker
               selected={startDate}
+              closeOnScroll={true}
               onChange={date => {
                 setStartDate(date);
                 setFieldValue('date', date);
               }}
+              startDate={today}
               minDate={tomorrow}
               dateFormat="MMMM d, yyyy"
               highlightDates={[today]}
               placeholderText="Booking date*"
-              className={`${css.input} custom-datepicker`}
+              className={css.input}
             />
             <ErrorMessage className={css.error} name="date" component="span" />
           </div>

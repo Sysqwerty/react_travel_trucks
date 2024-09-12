@@ -1,14 +1,26 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 23px;
+  gap: 14px;
+}
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    gap: 23px;
+  }
 }
 
 .title {
-  font-size: var(--font-medium);
+  font-size: var(--font-small);
   font-weight: 600;
   line-height: 1.2;
   color: var(--main);
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: var(--font-medium);
+  }
 }
 
 .separator {
@@ -20,14 +32,26 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 4px;
+}
+
+@media screen and (min-width: 1440px) {
+  .list {
+    gap: 16px;
+  }
 }
 
 .item {
   display: flex;
   justify-content: space-between;
-  font-size: var(--font-small);
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
   color: var(--main);
+}
+
+@media screen and (min-width: 1440px) {
+  .item {
+    font-size: var(--font-small);
+  }
 }
