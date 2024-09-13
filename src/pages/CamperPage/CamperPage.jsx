@@ -12,6 +12,7 @@ import Booking from '@components/Booking/Booking';
 
 import { getCamperById } from '@redux/campers/operations';
 import { selectIsLoading, selectCamperById } from '@redux/campers/selectors';
+import { toastAlert } from '@utils/toastAlert';
 
 import css from './CamperPage.module.css';
 
@@ -32,12 +33,14 @@ const CamperPage = () => {
   };
 
   useEffect(() => {
-    dispatch(getCamperById(camperId));
+    dispatch(getCamperById(camperId))
+      .unwrap()
+      .catch(error => toastAlert.error(error));
   }, [dispatch, camperId]);
 
   return (
     <>
-      <DocumentTitle title="Camper" />
+      <DocumentTitle title="Travel Trucks | Camper" />
 
       {isLoading && <Loader />}
 
@@ -46,7 +49,7 @@ const CamperPage = () => {
           <Container>
             {camper && (
               <div className={css.wrapper}>
-                <CamperHeader isCamperDetails {...camper} />
+                <CamperHeader camper={camper} />
 
                 <ul className={css.gallery}>
                   {camper.gallery.map(({ thumb, original }) => (
