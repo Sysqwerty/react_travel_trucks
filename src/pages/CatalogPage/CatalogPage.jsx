@@ -11,6 +11,7 @@ import { getCampers } from '@redux/campers/operations';
 import { selectIsLoading } from '@redux/campers/selectors';
 import { changeFilter, initialState } from '@redux/filters/slice';
 import { toastAlert } from '@utils/toastAlert';
+import { scrollToTheTop } from '@utils/utils';
 
 import css from './CatalogPage.module.css';
 
@@ -24,6 +25,8 @@ const CatalogPage = () => {
       .catch(error => toastAlert.error(error));
     return () => dispatch(changeFilter(initialState));
   }, [dispatch]);
+
+  useEffect(scrollToTheTop, []);
 
   return (
     <>

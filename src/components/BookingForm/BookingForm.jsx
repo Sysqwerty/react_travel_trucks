@@ -32,7 +32,9 @@ const BookingForm = () => {
   tomorrow.setDate(tomorrow.getDate() + 1);
 
   const handleSubmit = (values, { resetForm }) => {
-    toastAlert.success(`Dear Camper ${values.name}, your booking 🚍 is confirmed! Thank you!`);
+    toastAlert.success(
+      `Dear ${values.name}, your booking is confirmed! 🚍 Thank you!`
+    );
 
     resetForm();
     setStartDate(null);

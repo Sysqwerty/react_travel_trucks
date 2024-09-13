@@ -13,6 +13,7 @@ import Booking from '@components/Booking/Booking';
 import { getCamperById } from '@redux/campers/operations';
 import { selectIsLoading, selectCamperById } from '@redux/campers/selectors';
 import { toastAlert } from '@utils/toastAlert';
+import { scrollToTheTop } from '@utils/utils';
 
 import css from './CamperPage.module.css';
 
@@ -37,6 +38,8 @@ const CamperPage = () => {
       .unwrap()
       .catch(error => toastAlert.error(error));
   }, [dispatch, camperId]);
+
+  useEffect(scrollToTheTop, []);
 
   return (
     <>
