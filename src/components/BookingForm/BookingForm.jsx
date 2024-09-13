@@ -19,9 +19,9 @@ const INITIAL_FORM_DATA = {
 };
 
 const FormSchema = Yup.object().shape({
-  name: Yup.string().required('Required'),
-  email: Yup.string().email('Invalid email').required('Required'),
-  date: Yup.date().required('Required'),
+  name: Yup.string().required('Name is required'),
+  email: Yup.string().email('Invalid email').required('Email is required'),
+  date: Yup.date().required('Booking date is required'),
   comment: Yup.string(),
 });
 

@@ -39,85 +39,87 @@ const FiltersForm = () => {
   };
 
   return (
-    <Formik initialValues={INITIAL_VALUES} onSubmit={handleSubmit}>
-      {({ values, setFieldValue }) => (
-        <Form className={css.form}>
-          <div className={css.location}>
-            <label htmlFor="location" className={css.locationLabel}>
-              Location
-            </label>
-            <div className={css.inputWrapper}>
-              <Icon name="icon-map" className="iconMap" />
-              <Field
-                type="text"
-                id="location"
-                name="location"
-                placeholder="City"
-                className={css.locationInput}
-                aria-label="Location"
-              />
+    <div>
+      <Formik initialValues={INITIAL_VALUES} onSubmit={handleSubmit}>
+        {({ values, setFieldValue }) => (
+          <Form className={css.form}>
+            <div className={css.location}>
+              <label htmlFor="location" className={css.locationLabel}>
+                Location
+              </label>
+              <div className={css.inputWrapper}>
+                <Icon name="icon-map" className="iconMap" />
+                <Field
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="City"
+                  className={css.locationInput}
+                  aria-label="Location"
+                />
+              </div>
             </div>
-          </div>
 
-          <h3 className={css.title}>Filters</h3>
+            <h3 className={css.title}>Filters</h3>
 
-          <div className={css.equipment}>
-            <h4 className={css.subTitle}>Vehicle equipment</h4>
-            <hr className={css.separator} />
-            <div className={css.equipmentOptions}>
-              {EQUIPMENT_OPTIONS.map(option => (
-                <label key={option.value} className={css.equipmentLabel}>
-                  <Field
-                    type="checkbox"
-                    name="equipment"
-                    value={option.value}
-                    checked={values.equipment.includes(option.value)}
-                    className={css.checkbox}
-                    onChange={() =>
-                      setFieldValue(
-                        'equipment',
-                        values.equipment.includes(option.value)
-                          ? values.equipment.filter(
-                              item => item !== option.value
-                            )
-                          : [...values.equipment, option.value]
-                      )
-                    }
-                    aria-label={option.label}
-                  />
-                  <Icon name={option.icon} />
-                  {option.label}
-                </label>
-              ))}
+            <div className={css.equipment}>
+              <h4 className={css.subTitle}>Vehicle equipment</h4>
+              <hr className={css.separator} />
+              <div className={css.equipmentOptions}>
+                {EQUIPMENT_OPTIONS.map(option => (
+                  <label key={option.value} className={css.equipmentLabel}>
+                    <Field
+                      type="checkbox"
+                      name="equipment"
+                      value={option.value}
+                      checked={values.equipment.includes(option.value)}
+                      className={css.checkbox}
+                      onChange={() =>
+                        setFieldValue(
+                          'equipment',
+                          values.equipment.includes(option.value)
+                            ? values.equipment.filter(
+                                item => item !== option.value
+                              )
+                            : [...values.equipment, option.value]
+                        )
+                      }
+                      aria-label={option.label}
+                    />
+                    <Icon name={option.icon} />
+                    {option.label}
+                  </label>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className={css.vehicleType}>
-            <h4 className={css.subTitle}>Vehicle type</h4>
-            <hr className={css.separator} />
-            <div className={css.vehicleTypeOptions}>
-              {VEHICLE_TYPE_OPTIONS.map(option => (
-                <label key={option.value} className={css.vehicleTypeLabel}>
-                  <Field
-                    type="radio"
-                    name="vehicleType"
-                    value={option.value}
-                    className={css.radioButton}
-                    aria-label={option.label}
-                  />
-                  <Icon name={option.icon} />
-                  {option.label}
-                </label>
-              ))}
+            <div className={css.vehicleType}>
+              <h4 className={css.subTitle}>Vehicle type</h4>
+              <hr className={css.separator} />
+              <div className={css.vehicleTypeOptions}>
+                {VEHICLE_TYPE_OPTIONS.map(option => (
+                  <label key={option.value} className={css.vehicleTypeLabel}>
+                    <Field
+                      type="radio"
+                      name="vehicleType"
+                      value={option.value}
+                      className={css.radioButton}
+                      aria-label={option.label}
+                    />
+                    <Icon name={option.icon} />
+                    {option.label}
+                  </label>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <Button type="submit" aria-label="Search">
-            Search
-          </Button>
-        </Form>
-      )}
-    </Formik>
+            <Button type="submit" aria-label="Search">
+              Search
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </div>
   );
 };
 
