@@ -81,6 +81,7 @@ const BookingForm = () => {
               highlightDates={[today]}
               placeholderText="Booking date*"
               className={css.input}
+              disabledKeyboardNavigation={true}
             />
             <ErrorMessage className={css.error} name="date" component="span" />
           </div>

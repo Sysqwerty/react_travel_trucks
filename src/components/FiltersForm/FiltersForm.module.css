@@ -7,8 +7,6 @@
 @media screen and (min-width: 768px) {
   .form {
     gap: 16px;
-    position: sticky;
-    top: 122px;
   }
 }
 
@@ -138,16 +136,20 @@
     box-shadow var(--animation-cubicBezier);
 }
 
-.equipmentLabel:hover,
-.vehicleTypeLabel:hover,
 .equipmentLabel:focus,
 .vehicleTypeLabel:focus,
-.equipmentLabel:active,
-.vehicleTypeLabel:active,
 .equipmentLabel:has(:checked),
 .vehicleTypeLabel:has(:checked) {
   border-color: var(--button);
   box-shadow: var(--shadow-small);
+}
+
+@media (hover: hover) {
+  .equipmentLabel:hover,
+  .vehicleTypeLabel:hover {
+    border-color: var(--button);
+    box-shadow: var(--shadow-small);
+  }
 }
 
 .checkbox,

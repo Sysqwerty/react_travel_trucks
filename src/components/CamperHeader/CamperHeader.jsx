@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import clsx from 'clsx';
 
 import Icon from '@components/Icon/Icon';
 
@@ -9,7 +10,7 @@ import { toastAlert } from '@utils/toastAlert';
 
 import css from './CamperHeader.module.css';
 
-const CamperHeader = ({ camper }) => {
+const CamperHeader = ({ camper, first }) => {
   const { id, name, price, rating, location, reviews = [] } = camper;
   const dispatch = useDispatch();
   const isFavorite = useSelector(state => selectIsFavorite(state, id));
@@ -48,7 +49,7 @@ const CamperHeader = ({ camper }) => {
       <p className={css.camperRating}>
         <span className={css.rating}>
           <Icon name="icon-star" className="iconStar" />
-          <span className={css.ratingValue}>
+          <span className={clsx(!first && css.ratingValue)}>
             {rating} ({reviews.length} Reviews)
           </span>
         </span>

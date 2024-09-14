@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import DocumentTitle from '@components/DocumentTitle';
 import Container from '@components/Container/Container';
 import CamperList from '@components/CamperList/CamperList';
+import ScrollUp from '@components/ScrollUp/ScrollUp';
 
 import { selectFavorites } from '@redux/favorites/selectors';
 import { scrollToTheTop } from '@utils/utils';
@@ -32,6 +33,7 @@ const FavoritesPage = () => {
           </Container>
         </section>
       </main>
+      <ScrollUp />
     </>
   );
 };

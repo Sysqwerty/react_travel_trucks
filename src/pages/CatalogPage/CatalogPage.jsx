@@ -6,6 +6,7 @@ import Container from '@components/Container/Container';
 import FiltersForm from '@components/FiltersForm/FiltersForm';
 import Campers from '@components/Campers/Campers';
 import Loader from '@components/Loader/Loader';
+import ScrollUp from '@components/ScrollUp/ScrollUp';
 
 import { getCampers } from '@redux/campers/operations';
 import { selectIsLoading } from '@redux/campers/selectors';
@@ -41,6 +42,7 @@ const CatalogPage = () => {
           </Container>
         </section>
       </main>
+      <ScrollUp />
     </>
   );
 };

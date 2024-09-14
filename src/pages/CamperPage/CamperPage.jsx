@@ -9,6 +9,7 @@ import CamperHeader from '@components/CamperHeader/CamperHeader';
 import CamperPageNavigation from '@components/CamperPageNavigation/CamperPageNavigation';
 import CamperModal from '@components/CamperModal/CamperModal';
 import Booking from '@components/Booking/Booking';
+import ScrollUp from '@components/ScrollUp/ScrollUp';
 
 import { getCamperById } from '@redux/campers/operations';
 import { selectIsLoading, selectCamperById } from '@redux/campers/selectors';
@@ -90,6 +91,7 @@ const CamperPage = () => {
         onClose={() => setIsOpenModal(false)}
         {...modalParams}
       />
+      <ScrollUp />
     </>
   );
 };
