@@ -19,10 +19,13 @@ const INITIAL_FORM_DATA = {
 };
 
 const FormSchema = Yup.object().shape({
-  name: Yup.string().required('Name is required'),
+  name: Yup.string()
+    .min(3, 'Please enter minimum 3 characters')
+    .trim()
+    .required('Name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
   date: Yup.date().required('Booking date is required'),
-  comment: Yup.string(),
+  comment: Yup.string().trim(),
 });
 
 const BookingForm = () => {
@@ -33,7 +36,7 @@ const BookingForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     toastAlert.success(
-      `Dear ${values.name}, your booking is confirmed! 🚍 Thank you!`
+      `Dear ${values.name}! Your booking has been confirmed! 🚍`
     );
 
     resetForm();
@@ -81,7 +84,6 @@ const BookingForm = () => {
               highlightDates={[today]}
               placeholderText="Booking date*"
               className={css.input}
-              disabledKeyboardNavigation={true}
             />
             <ErrorMessage className={css.error} name="date" component="span" />
           </div>
