@@ -25,7 +25,11 @@ const Camper = ({ camper, first }) => {
         <EquipmentList equipment={equipment} />
 
         <Button aria-label="Show More">
-          <Link to={`/catalog/${id}/features`} className={css.link}>
+          <Link
+            to={`/catalog/${id}/features`}
+            className={css.link}
+            target="_blank"
+          >
             Show More
           </Link>
         </Button>
