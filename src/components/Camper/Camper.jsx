@@ -14,7 +14,7 @@ const Camper = ({ camper, first }) => {
   const equipment = getFilteredEquipment({ ...camper });
 
   return (
-    <div className={css.camperCard}>
+    <li className={css.camperCard}>
       <img src={gallery[0].thumb} alt={name} className={css.camperImage} />
 
       <div className={css.camperDetails}>
@@ -34,7 +34,7 @@ const Camper = ({ camper, first }) => {
           </Link>
         </Button>
       </div>
-    </div>
+    </li>
   );
 };
 
